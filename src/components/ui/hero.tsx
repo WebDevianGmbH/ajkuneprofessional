@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export function Hero() {
   return (
     <motion.section 
-      className="relative min-h-[600px] md:h-screen flex items-end md:items-center pb-16 md:pb-0"
+      className="relative h-[100svh] flex items-end md:items-center pb-16 md:pb-0"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
