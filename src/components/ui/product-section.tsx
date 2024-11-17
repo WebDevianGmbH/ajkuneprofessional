@@ -20,6 +20,7 @@ interface Product {
   discount?: string;
   image: string;
   brand: string;
+  slug: string;
 }
 
 const products: Product[] = [
@@ -29,8 +30,9 @@ const products: Product[] = [
     price: "129.00 CHF",
     oldPrice: "199.00",
     discount: "-35%",
-    image: "/product1.jpg",
-    brand: "AJKUNE PROFESSIONAL"
+    image: "/shop1.webp",
+    brand: "AJKUNE PROFESSIONAL",
+    slug: "electric-tape-remover"
   },
   {
     id: 2,
@@ -38,21 +40,22 @@ const products: Product[] = [
     price: "109.00 CHF",
     oldPrice: "199.00",
     discount: "-45%",
-    image: "/product2.jpg",
-    brand: "AJKUNE PROFESSIONAL"
+    image: "/shop3.jpg",
+    brand: "AJKUNE PROFESSIONAL",
+    slug: "hair-curling-lockenstab"
   },
   {
     id: 3,
     name: "Repair-Shampoo 200ml",
     price: "19.90 CHF",
-    image: "/product3.jpg",
+    image: "/shop4.webp",
     brand: "AJKUNE PROFESSIONAL"
   },
   {
     id: 4,
     name: "Silvershampoo Yes Silver 250ml",
     price: "29.90 CHF",
-    image: "/product4.jpg",
+    image: "/shop5.webp",
     brand: "AJKUNE PROFESSIONAL"
   },
   {
@@ -61,14 +64,14 @@ const products: Product[] = [
     price: "24.90 CHF",
     oldPrice: "34.90",
     discount: "-30%",
-    image: "/product1.jpg",
+    image: "/shop4.webp",
     brand: "AJKUNE PROFESSIONAL"
   },
   {
     id: 6,
     name: "Glanz Serum Intensive Care",
     price: "39.90 CHF",
-    image: "/product2.jpg",
+    image: "/shop4.webp",
     brand: "AJKUNE PROFESSIONAL"
   },
   {
@@ -77,14 +80,14 @@ const products: Product[] = [
     price: "22.90 CHF",
     oldPrice: "29.90",
     discount: "-25%",
-    image: "/product3.jpg",
+    image: "/shop4.webp",
     brand: "AJKUNE PROFESSIONAL"
   },
   {
     id: 8,
     name: "Feuchtigkeits-Maske Deep Repair",
     price: "34.90 CHF",
-    image: "/product4.jpg",
+    image: "/shop4.webp",
     brand: "AJKUNE PROFESSIONAL"
   }
 ];
@@ -168,35 +171,41 @@ export function ProductSection() {
                 <CarouselContent className="-ml-2 md:-ml-4">
                   {products.map((product) => (
                     <CarouselItem key={product.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
-                      <div className="relative bg-white rounded-lg overflow-hidden h-[350px] md:h-[400px]">
-                        <div className="h-[200px] md:h-[250px] relative bg-white">
-                          {product.discount && (
-                            <span className="absolute top-2 left-2 bg-[#fe23d9] text-white px-2 py-1 text-xs md:text-sm rounded-md z-10">
-                              {product.discount}
-                            </span>
-                          )}
-                          <Image
-                            src={product.image}
-                            alt={product.name}
-                            fill
-                            className="object-contain p-4"
-                          />
-                        </div>
-                        <div className="p-3 md:p-4 h-[150px] flex flex-col justify-between">
-                          <div>
-                            <p className="text-xs text-gray-500">{product.brand}</p>
-                            <h3 className="text-sm font-medium text-gray-900 line-clamp-2 mt-1">{product.name}</h3>
-                          </div>
-                          <div className="flex items-baseline gap-2">
-                            {product.oldPrice && (
-                              <span className="text-xs md:text-sm text-gray-500 line-through">
-                                {product.oldPrice}
+                      <Link 
+                        href={`/produkte/${product.slug}`} 
+                        className="block transition-transform hover:scale-[1.02] duration-200"
+                      >
+                        <div className="relative bg-white rounded-lg overflow-hidden h-[350px] md:h-[400px] shadow-sm hover:shadow-md transition-shadow duration-200">
+                          <div className="h-[250px] md:h-[300px] relative bg-white">
+                            {product.discount && (
+                              <span className="absolute top-2 left-2 bg-[#fe23d9] text-white px-2 py-1 text-xs md:text-sm rounded-md z-10">
+                                {product.discount}
                               </span>
                             )}
-                            <span className="text-sm md:text-base font-semibold">{product.price}</span>
+                            <Image
+                              src={product.image}
+                              alt={product.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            />
+                          </div>
+                          <div className="p-3 md:p-4 h-[100px] flex flex-col justify-between">
+                            <div>
+                              <p className="text-xs text-gray-500">{product.brand}</p>
+                              <h3 className="text-sm font-medium text-gray-900 line-clamp-2 mt-1">{product.name}</h3>
+                            </div>
+                            <div className="flex items-baseline gap-2">
+                              {product.oldPrice && (
+                                <span className="text-xs md:text-sm text-gray-500 line-through">
+                                  {product.oldPrice}
+                                </span>
+                              )}
+                              <span className="text-sm md:text-base font-semibold">{product.price}</span>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
