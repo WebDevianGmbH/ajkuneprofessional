@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Testimonial {
   id: number;
@@ -52,27 +52,46 @@ const testimonials: Testimonial[] = [
 
 export function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [slidesPerView, setSlidesPerView] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (typeof window !== 'undefined') {
+        if (window.innerWidth >= 1024) {
+          setSlidesPerView(3);
+        } else if (window.innerWidth >= 768) {
+          setSlidesPerView(2);
+        } else {
+          setSlidesPerView(1);
+        }
+      }
+    };
+
+    handleResize(); // Initial call
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => 
-      prevIndex + (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1) >= testimonials.length 
+      prevIndex + slidesPerView >= testimonials.length 
         ? 0 
-        : prevIndex + (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1)
+        : prevIndex + slidesPerView
     );
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => {
-      const step = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
-      return prevIndex - step < 0 
-        ? Math.max(testimonials.length - step, 0) 
-        : prevIndex - step;
+      return prevIndex - slidesPerView < 0 
+        ? Math.max(testimonials.length - slidesPerView, 0) 
+        : prevIndex - slidesPerView;
     });
   };
 
   const visibleTestimonials = testimonials.slice(
     currentIndex,
-    currentIndex + (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1)
+    currentIndex + slidesPerView
   );
 
   return (
