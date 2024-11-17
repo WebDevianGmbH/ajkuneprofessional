@@ -10,34 +10,36 @@ export function Footer() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-[#1E1E1E] text-white py-16"
+      className="bg-[#1E1E1E] text-white py-16 pb-32 md:pb-16"
     >
       <div className="container mx-auto px-4">
         {/* Grid für Logo, Navigation und Social Media */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
           {/* Left Links */}
-          <div className="flex flex-col items-center md:items-start space-y-2">
-            <Link href="/kontakt" className="hover:text-gray-300 transition-colors">
+          <div className="flex flex-col items-center md:items-start space-y-4">
+            <h3 className="font-semibold text-lg mb-2 md:mb-4">Information</h3>
+            <Link href="/kontakt" className="hover:text-[#fe23d9] transition-colors">
               Kontakt
             </Link>
-            <Link href="/impressum" className="hover:text-gray-300 transition-colors">
+            <Link href="/impressum" className="hover:text-[#fe23d9] transition-colors">
               Impressum
             </Link>
-            <Link href="/uber-uns" className="hover:text-gray-300 transition-colors">
+            <Link href="/uber-uns" className="hover:text-[#fe23d9] transition-colors">
               Über uns
             </Link>
-            <Link href="/versand" className="hover:text-gray-300 transition-colors">
+            <Link href="/versand" className="hover:text-[#fe23d9] transition-colors">
               Versandinformationen
             </Link>
           </div>
 
           {/* Center Logo and Social Media */}
-          <div className="flex flex-col items-center space-y-6">
+          <div className="flex flex-col items-center space-y-6 order-first md:order-none">
             <Image
               src="/ajkune_logo.png"
               alt="Ajkune Professional"
-              width={200}
-              height={100}
+              width={180}
+              height={90}
+              className="w-[140px] md:w-[180px]"
             />
             <div className="flex justify-center space-x-6">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
@@ -64,14 +66,15 @@ export function Footer() {
           </div>
 
           {/* Right Links */}
-          <div className="flex flex-col items-center md:items-end space-y-2">
-            <Link href="/agb" className="hover:text-gray-300 transition-colors">
+          <div className="flex flex-col items-center md:items-end space-y-4">
+            <h3 className="font-semibold text-lg mb-2 md:mb-4">Rechtliches</h3>
+            <Link href="/agb" className="hover:text-[#fe23d9] transition-colors">
               AGB
             </Link>
-            <Link href="/widerrufsrecht" className="hover:text-gray-300 transition-colors">
+            <Link href="/widerrufsrecht" className="hover:text-[#fe23d9] transition-colors">
               Widerrufsrecht
             </Link>
-            <Link href="/datenschutz" className="hover:text-gray-300 transition-colors">
+            <Link href="/datenschutz" className="hover:text-[#fe23d9] transition-colors">
               Datenschutzerklärung
             </Link>
           </div>
@@ -80,7 +83,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="text-center text-sm text-gray-400 border-t border-gray-800 mt-12 pt-8">
           <p>© 2024 Ajkune Professional</p>
-          <p>Webseite erstellt von WebDevian GmbH</p>
+          <p className="mt-2">Webseite erstellt von WebDevian GmbH</p>
         </div>
       </div>
     </motion.footer>
