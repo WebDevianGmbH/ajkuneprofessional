@@ -49,14 +49,16 @@ const products: Product[] = [
     name: "Repair-Shampoo 200ml",
     price: "19.90 CHF",
     image: "/shop4.webp",
-    brand: "AJKUNE PROFESSIONAL"
+    brand: "AJKUNE PROFESSIONAL",
+    slug: "repair-shampoo-200ml"
   },
   {
     id: 4,
     name: "Silvershampoo Yes Silver 250ml",
     price: "29.90 CHF",
     image: "/shop5.webp",
-    brand: "AJKUNE PROFESSIONAL"
+    brand: "AJKUNE PROFESSIONAL",
+    slug: "silvershampoo-yes-silver-250ml"
   },
   {
     id: 5,
@@ -65,14 +67,16 @@ const products: Product[] = [
     oldPrice: "34.90",
     discount: "-30%",
     image: "/shop4.webp",
-    brand: "AJKUNE PROFESSIONAL"
+    brand: "AJKUNE PROFESSIONAL",
+    slug: "professional-haarspray-extra-strong"
   },
   {
     id: 6,
     name: "Glanz Serum Intensive Care",
     price: "39.90 CHF",
     image: "/shop4.webp",
-    brand: "AJKUNE PROFESSIONAL"
+    brand: "AJKUNE PROFESSIONAL",
+    slug: "glanz-serum-intensive-care"
   },
   {
     id: 7,
@@ -81,14 +85,16 @@ const products: Product[] = [
     oldPrice: "29.90",
     discount: "-25%",
     image: "/shop4.webp",
-    brand: "AJKUNE PROFESSIONAL"
+    brand: "AJKUNE PROFESSIONAL",
+    slug: "color-protection-shampoo"
   },
   {
     id: 8,
     name: "Feuchtigkeits-Maske Deep Repair",
     price: "34.90 CHF",
     image: "/shop4.webp",
-    brand: "AJKUNE PROFESSIONAL"
+    brand: "AJKUNE PROFESSIONAL",
+    slug: "feuchtigkeits-maske-deep-repair"
   }
 ];
 
