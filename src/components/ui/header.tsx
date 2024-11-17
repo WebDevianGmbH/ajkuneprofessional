@@ -19,7 +19,7 @@ export function Header() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link href="/" className="relative w-[180px] h-[48px] -my-2">
+          <Link href="/" className="relative w-[120px] md:w-[180px] h-[48px] -my-2">
             <Image
               src="/ajkune_logo.png"
               alt="Ajkune Professional"
@@ -29,22 +29,24 @@ export function Header() {
             />
           </Link>
           
-          <div className="absolute left-1/2 transform -translate-x-1/2 space-x-6">
-            <Link href="/produkte" className="text-white hover:text-[#fe23d9] transition-colors">
-              Produkte
-            </Link>
-            <Link href="/behandlungen" className="text-white hover:text-[#fe23d9] transition-colors">
-              Behandlungen
-            </Link>
-            <Link href="/uber-uns" className="text-white hover:text-[#fe23d9] transition-colors">
-              Über uns
-            </Link>
-            <Link href="/kontakt" className="text-white hover:text-[#fe23d9] transition-colors">
-              Kontakt
-            </Link>
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
+            <div className="space-x-6">
+              <Link href="/produkte" className="text-white hover:text-[#fe23d9] transition-colors">
+                Produkte
+              </Link>
+              <Link href="/behandlungen" className="text-white hover:text-[#fe23d9] transition-colors">
+                Behandlungen
+              </Link>
+              <Link href="/uber-uns" className="text-white hover:text-[#fe23d9] transition-colors">
+                Über uns
+              </Link>
+              <Link href="/kontakt" className="text-white hover:text-[#fe23d9] transition-colors">
+                Kontakt
+              </Link>
+            </div>
           </div>
 
-          <div className="relative">
+          <div className="hidden md:block relative">
             <button 
               className="text-white hover:text-[#fe23d9] transition-colors p-2"
               onClick={() => setIsCartOpen(!isCartOpen)}
