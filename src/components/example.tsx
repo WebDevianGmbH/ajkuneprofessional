@@ -1,14 +1,19 @@
-// Server Component
+"use client";
+
+import React from 'react';
+
+function ClientComponent() {
+  return (
+    <div>
+      {/* Ihr Client-seitiger Code hier */}
+    </div>
+  );
+}
+
 export default function ExampleWrapper() {
   return (
     <div>
       <ClientComponent />
     </div>
   );
-}
-
-// Client Component in separate file
-"use client";
-function ClientComponent() {
-  // Code der window verwendet
 } 
